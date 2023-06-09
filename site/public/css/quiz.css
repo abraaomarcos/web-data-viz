@@ -1,0 +1,51 @@
+.navBar{
+  position:relative;
+  text-decoration: none;
+  border: groove;
+  
+  opacity: 90%;
+  list-style: none;
+  color: rgb(115, 40, 221);
+display: flex;
+width: 100%;
+flex-direction: row;
+justify-content:space-around;
+padding-top: 1.4rem;
+font-size: 25px;
+font-weight: bold;
+:hover{
+transition: .3 ease-in-out;
+}
+}
+body{
+  background-image: url("./NarutoQuiz.jpg");
+  background-color: #f9a629;
+}
+.quizTitle{
+  display: flex;
+  justify-content: center;
+}
+
+.labels{
+  display: flex;
+  justify-content: center;
+}
+#quiz {
+    width: 500px;
+    margin: 0 auto;
+    font-weight: bolder;
+    color: #fff;
+  }
+  .selects{
+    font-size: large;
+  }
+  
+  #error-message {
+    color: red;
+    font-weight: bold;
+  }
+  #result{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: xx-large;
+  }

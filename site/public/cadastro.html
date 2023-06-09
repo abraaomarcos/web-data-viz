@@ -1,129 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Cadastro</title>
-
-
-    <script src="./js/funcoes.js"></script>
-
-
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css">
 </head>
-
 <body>
+        <head>
+    <nav class="navBarCadastro">
+        <li>
+            <ol><a href="./index.html" style="text-decoration: none; color: #ffff;"><b>Home</b></a></ol>
+        </li>
+        <li>
+            <ol><a href="index.html#texto1" style="text-decoration: none; color: #ffff;"><b>Sobre o Naruto</b></a></ol>
+        </li>
 
-    <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li class="agora">
-                    <a href="#">Cadastro</a>
-                </li>
-            </ul>
+        <li>
+            <ol><a href="./login.html" style="text-decoration: none; color: #ffff;"><b>Login</b></a></ol>
+        </li>
+    </nav>
+</head>
+        <div id="msgInput">
+            <h3>Preencha os campos a seguir com seus dados de cadastro</h3><br>
         </div>
-    </div>
-    <!--header fim-->
+    <div class="input">
+		<form id="form">
+            <label for="name">Nome</label><br>
+            <input type="text" id="input_Nome"><br>
 
+            <label for="email">E-mail</label><br>
+            <input type="email" id="input_Email"><br>
 
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card card-cadastro">
-                <h2>Bem-vindo!</h2>
-                <div class="formulario">
+            <label for="senha">Senha</label><br>
+            <input type="password" id="input_Senha"><br>
 
-                    <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
+            <label for="senha">Confirme a senha</label><br>
+            <input type="password" id="input_ConfirmarSenha"><br>
 
-                    <div class="campo">
-                        <span>Nome:</span>
-                        <input id="nome_input" type="text" placeholder="Seu nome">
-                    </div>
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <div class="campo">
-                        <span>Confirmação da Senha:</span>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="cadastrar()">Cadastrar</button>
-
-                </div>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
-    </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
-
-
+           <div id="div_Cadastro"></div>
+           <button onclick="cadastrar()" >Cadastrar</button>
+		</form>
+      
+     </div>    
 </body>
-
 </html>
 
 <script>
     function cadastrar() {
-        aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var nomeVar = input_Nome.value;
+    var emailVar = input_Email.value;
+    var senhaVar = input_Senha.value;
+    var confirmacaoSenhaVar = input_ConfirmarSenha.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-            finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
         }
 
         // Enviando o valor da nova input
@@ -144,16 +80,11 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+            
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "./logado.html";
                 }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }

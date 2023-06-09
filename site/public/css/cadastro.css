@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navBarCadastro{
+    padding-top: 1.4rem;
+    list-style: none;
+    border: groove;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    color: #fff;
+    font-size: 26px;
+font-weight: bold;
+text-shadow: blue;
+box-shadow: blue;
+backdrop-filter: blur(#f9a629);
+:hover{
+    background-color: #FBE407;
+}
+}
+
+body{
+    background-color:#f9a629;
+    color: #fff;
+    /* background-image: url("../naruto\ cadastro\ kunai.jpg"); */
+    background-repeat: no-repeat;
+    text-shadow: #0000;
+}
+
+.form{
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 22px;
+   color: black;
+   font-weight: bold;
+   background-position: center;
+   background-color: transparent;
+   text-shadow: #0000;  
+   border: none;
+   }
+   #form{
+    margin-top: 400px;
+   }
+#msgInput{
+    color: #fff;
+    backdrop-filter: blur(40px);
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
+    font-weight: bolder;
+}
+.input{
+    background-image: url("../naruto\ cadastro\ kunai.jpg");
+    /* gap: 10rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+    background-repeat: no-repeat;
+    height: 25rem;
+    padding-left: 200px;
+    padding-bottom: 300px;
+
+}
+#imgCadastro{
+    position: relative;
+    width: 50%;
+    display: flex;
+    margin-top: 200px;
+
+    }
+label{
+    font-weight: bold;
+    margin-bottom: 2rem;
+
+}

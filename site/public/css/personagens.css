@@ -1,0 +1,12 @@
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style-type: none;
+    border: groove;
+    color: #fff;
+}
+body{
+    background-color: #f9a629;
+}

@@ -31,8 +31,28 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+async function salvarPersonagem(idUsuario, nomePersonagem){
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var queryPersonagem = `
+        SELECT idPersonagem FROM personagem WHERE nomePersonagem = '${nomePersonagem}';
+    `;
+    var idPersonalidade = await database.executar(queryPersonagem);
+
+    var instrucao =  `
+    INSERT INTO personagem (nomePersonagem, fkUsuario, fkPersonalidade)
+    VALUES ('${nomePersonagem}', '${idUsuario}', '${idPersonalidade[0].idPersonagem}');`
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n");
+    return database.executar(instrucao);
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    salvarPersonagem
+    
 };

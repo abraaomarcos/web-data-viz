@@ -1,0 +1,72 @@
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style-type: none;
+    border: groove;
+    color: #fff;
+}
+body{
+    background-color: #f9a629;
+}
+#boasVindas{
+    background-color: #121212;
+    /* padding-top: 8px;
+    padding-bottom: 8px; */
+    margin-top: 62px;
+    margin-left: 345px;
+    border-radius: 20px;
+    width: 52%;
+    opacity: 90%;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    color: #ffff;
+    font-weight: bold;
+}
+.ImgNaruto-logado{
+ display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 100px;
+}
+.personagensTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    width: 22%;
+    margin-left: 570px;
+    border-radius: 27px;
+    margin-top: 100px;
+    color: #fff;
+    
+}
+.sobrePersonagens{
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+}
+.personagens{
+    margin-top: 100px;
+
+}
+#container{
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+}
+#title{
+    background-color: aqua;
+    border-radius: 20px;
+
+}
+.charactersTitle{
+    font-size: larger;
+    font-weight: bold;
+}
+#primeira{
+    display: flex;
+    justify-content: center;
+}
