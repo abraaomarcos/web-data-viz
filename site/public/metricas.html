@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/sessao.js"></script>
+    <script src="./js/quiz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <div class="graficoP" style="align-items: center; justify-content: center; display: flex; position: relative; top: 200px;">
+        <canvas id="graficoPersonagem"  style="width:400px;max-width:700px"> </canvas>
+    </div>
+</body>
+
+<script>
+
+configurarSessao()
+setInterval(buildChart(), 100000)
+
+</script>
+</html>

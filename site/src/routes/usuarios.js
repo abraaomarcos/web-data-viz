@@ -14,4 +14,10 @@ router.post("/autenticar", function (req, res) {
 router.post("/salvarPersonalidade", async function (req, res) {
     usuarioController.salvarPersonagem(req, res);
 });
+
+router.get("/obterPersonagens", function (_, res) {
+    usuarioController.ObterPersonagens(_, res);
+});
+
+
 module.exports = router;

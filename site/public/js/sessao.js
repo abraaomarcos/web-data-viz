@@ -1,4 +1,34 @@
 // sessão
+function configurarSessao(){
+
+    if(sessionStorage.getItem("PERSONAGENS") == null){
+        
+        fetch("/usuarios/obterPersonagens", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(function (resposta) {
+      
+            if (resposta.ok) {
+                resposta.json().then(r => {
+                    console.log("Set session")
+                    console.log(JSON.stringify(r));
+                    sessionStorage.PERSONAGENS = JSON.stringify(r)
+                    })
+            }
+            else {
+                throw ("Houve um erro ao tentar obter o resultado ");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            return;
+        });
+    }
+  
+    
+}
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;

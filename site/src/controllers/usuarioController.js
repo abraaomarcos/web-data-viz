@@ -1,5 +1,4 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -19,27 +18,15 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorUsuario(resultadoAutenticar[0].id)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                        res.json({
+                            idUsuario: resultadoAutenticar[0].idUsuario,
+                            email: resultadoAutenticar[0].email,
+                            nome: resultadoAutenticar[0].nome,
+                            senha: resultadoAutenticar[0].senha
+                        });
                     }
                 }
+
             ).catch(
                 function (erro) {
                     console.log(erro);
@@ -87,7 +74,7 @@ function cadastrar(req, res) {
 async function salvarPersonagem(req, res){
     var idUsuario = req.body.idUsuarioServer;
     var nomePersonagem = req.body.nomePersonagemServer;
-
+    
     usuarioModel.salvarPersonagem(idUsuario, nomePersonagem)
     .then(
         function (resultado) {
@@ -106,10 +93,31 @@ async function salvarPersonagem(req, res){
 
 }
 
+function ObterPersonagens(_, res){
+
+    usuarioModel.ObterPersonagens()
+    .then(
+        function (resultado) {
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao obter resultado: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+
+}
+
+
+
 module.exports = {
-    entrar,
+    autenticar,
     cadastrar,
-    listar,
-    testar,
-    salvarPersonagem
+    salvarPersonagem,
+    ObterPersonagens
 }
