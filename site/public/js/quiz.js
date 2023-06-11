@@ -46,13 +46,13 @@ function submitQuiz() {
         nomePersonagem = "Rock Lee";
         break;
       case "foco":
-        nomePersonagem = "Neji";
+        nomePersonagem = "Sasuke";
         break;
       case "inteligencia":
         nomePersonagem = "Sakura";
         break;
       case "raciocinio":
-        nomePersonagem = "Sasuke";
+        nomePersonagem = "Kakashi";
         break;
       case "apaixonada":
         nomePersonagem = "Hinata";
@@ -111,16 +111,16 @@ function buildChart() {
     var yValues = [];
     var xValues = [];
     var narutoCount = 0;
-    var gaaraCount = 0;
     var sasukeCount = 0;
     var sakuraCount = 0;
     var rockLeeCount = 0;
+    var kakashiCount = 0;
     var hinataCount = 0;
     var nejiCount = 0;
     var tsunadeCount = 0;
     var jirayaCount = 0;
-    var kakashiCount = 0;
-  
+    var gaaraCount = 0;
+
   
     personagens.forEach(element => {
   
@@ -132,57 +132,56 @@ function buildChart() {
         }
       }
   
-      if(element.nomePersonagem == "Gaara"){
-        gaaraCount++
-        if (xValues.indexOf("Gaara") == -1)
-        {
-          xValues.push("Gaara")
-        }
-      }
-      if(element.nomePersonagem == "Sasuke"){
+      else if(element.nomePersonagem == "Sasuke"){
         sasukeCount++
         if (xValues.indexOf("Sasuke") == -1)
         {
           xValues.push("Sasuke")
         }
       }
-      if(element.nomePersonagem == "Sakura"){
+      else if(element.nomePersonagem == "Sakura"){
         sakuraCount++
         if (xValues.indexOf("Sakura") == -1)
         {
           xValues.push("Sakura")
         }
       }
-      if(element.nomePersonagem == "Rock Lee"){
+     else if(element.nomePersonagem == "Rock Lee"){
         rockLeeCount++
         if (xValues.indexOf("Rock Lee") == -1)
         {
           xValues.push("Rock Lee")
         }
-       
       }
-      if(element.nomePersonagem == "Hinata"){
+      else if(element.nomePersonagem == "Kakashi"){
+        kakashiCount++
+        if (xValues.indexOf("Kakashi") == -1)
+        {
+          xValues.push("Kakashi")
+        }
+      }
+     else if(element.nomePersonagem == "Hinata"){
         hinataCount++
         if (xValues.indexOf("Hinata") == -1)
         {
           xValues.push("Hinata")
         }
       }
-      if(element.nomePersonagem == "Neji"){
+     else if(element.nomePersonagem == "Neji"){
         nejiCount++
         if (xValues.indexOf("Neji") == -1)
         {
           xValues.push("Neji")
         }
       }
-      if(element.nomePersonagem == "Tsunade"){
+      else if(element.nomePersonagem == "Tsunade"){
         tsunadeCount++
         if (xValues.indexOf("Tsunade") == -1)
         {
           xValues.push("Tsunade")
         }
       }
-      if(element.nomePersonagem == "Jiraya"){
+      else if(element.nomePersonagem == "Jiraya"){
         jirayaCount++
         if (xValues.indexOf("Jiraya") == -1)
         {
@@ -190,11 +189,11 @@ function buildChart() {
         }
        
       }
-      if(element.nomePersonagem == "Kakashi"){
-        kakashiCount++
-        if (xValues.indexOf("Kakashi") == -1)
+      else if(element.nomePersonagem == "Gaara"){
+        gaaraCount++
+        if (xValues.indexOf("Gaara") == -1)
         {
-          xValues.push("Kakashi")
+          xValues.push("Gaara")
         }
         
       }
@@ -202,16 +201,18 @@ function buildChart() {
     });
   
     yValues.push(narutoCount);
-    yValues.push(gaaraCount);
     yValues.push(sasukeCount);
     yValues.push(sakuraCount);
     yValues.push(rockLeeCount);
+    yValues.push(kakashiCount);
     yValues.push(hinataCount);
     yValues.push(nejiCount);
     yValues.push(tsunadeCount);
     yValues.push(jirayaCount);
-    yValues.push(kakashiCount);
-  
+    yValues.push(gaaraCount);
+
+
+
     var barColors = ["red", "green","blue","aqua","brown","yellow", "purple","black","pink","cyan"];
     
     new Chart("graficoPersonagem", {

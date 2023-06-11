@@ -1,0 +1,19 @@
+*{
+    background-color: #f9a629;
+}
+.navMetricas{
+    padding-top: 1.4rem;
+    list-style: none;
+    border: groove;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: blue;
+    box-shadow: blue;
+    backdrop-filter: blur(#f9a629);
+}

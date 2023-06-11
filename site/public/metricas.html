@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./CSS/metricas.css">
     <script src="./js/sessao.js"></script>
     <script src="./js/quiz.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
+<nav class="navMetricas">
+    <li>
+      <ol><a href="./index.html" style="text-decoration: none; color: #ffff; background-color: #f9a629;"><b>Home</b></a></ol>
+    </li>
+    <li>
+      <ol><a href="./quiz.html" style="text-decoration: none; color: #ffff; background-color: #f9a629;"><b>Quiz</b></a></ol>
+    </li>
+    <li>
+      <ol><button onclick="Sair()" style="text-decoration: none; color: #ffff; background-color: #f9a629; border: none; cursor: pointer;"><b>Sair/Logout</b></button></ol>
+    </li>
+  </nav>
 <body>
     <div class="graficoP" style="align-items: center; justify-content: center; display: flex; position: relative; top: 200px;">
         <canvas id="graficoPersonagem"  style="width:400px;max-width:700px"> </canvas>
@@ -18,6 +30,12 @@
 
 configurarSessao()
 setInterval(buildChart(), 100000)
+
+function Sair(){
+        sessionStorage.clear()
+        window.location.href = "./login.html"
+
+    }
 
 </script>
 </html>
